@@ -1,8 +1,8 @@
 package com.projetointegrador.wichstream.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.fail;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class ComentarioServiceTest {
 

@@ -1,22 +1,40 @@
 package com.projetointegrador.wichstream.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import java.net.URI;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import com.projetointegrador.wichstream.controller.dto.UsuarioDTO;
+import com.projetointegrador.wichstream.controller.form.UsuarioForm;
+import com.projetointegrador.wichstream.model.Usuario;
+import com.projetointegrador.wichstream.service.UsuarioService;
+
 
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
 	
-	@GetMapping
-	public String helloWorld() {
-		return "Olá Mundo!";
-	}
+	@Autowired
+	private UsuarioService usuarioService;
 	
-//	@GetMapping("/{id}")
-//	public ResponseEntity<Usuario> findById(@PathVariable Integer id) {
-//		
-//		return ResponseEntity.ok(usuario);
-//	}
+	
+	@PostMapping
+	public ResponseEntity<UsuarioDTO> cadastar(@RequestBody @Valid UsuarioForm usuarioForm, UriComponentsBuilder uriBuilder) throws Exception {
+		
+		Usuario usuarioNovo = usuarioForm.converter(usuarioForm);
+		
+		usuarioService.cadastar(usuarioNovo);
+		
+		URI uri = uriBuilder.path("/usuarios/{id}").buildAndExpand(usuarioNovo.getId()).toUri();
+		return ResponseEntity.created(uri).body(new UsuarioDTO(usuarioNovo));
+	}
 
 }

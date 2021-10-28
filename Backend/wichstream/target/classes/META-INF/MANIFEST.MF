@@ -1,6 +1,10 @@
 Manifest-Version: 1.0
-Build-Jdk-Spec: 16
+Built-By: ebjunior
+Build-Jdk: 16.0.1
 Implementation-Title: wichstream
 Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.projetointegrador
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/wichstream
 Created-By: Maven Integration for Eclipse
 
