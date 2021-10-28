@@ -2,6 +2,7 @@ package com.projetointegrador.wichstream.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -92,6 +93,23 @@ public class Conteudo  implements Serializable {
 	}
 	public void setCurtida(Integer curtida) {
 		this.curtida = curtida;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Conteudo other = (Conteudo) obj;
+		return Objects.equals(id, other.id);
 	}
 
 }
