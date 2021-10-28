@@ -22,6 +22,10 @@ public class ConteudoService {
 		return null;
 	}
 	
+	public Conteudo buscarPorTitulo(String titulo) {
+		return null;
+	}
+	
 	public Conteudo buscarPorDescricao(String descricao) {
 		return null;
 	}
