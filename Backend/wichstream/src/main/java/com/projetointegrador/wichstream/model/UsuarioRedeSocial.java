@@ -2,11 +2,14 @@ package com.projetointegrador.wichstream.model;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
+
+@Entity
 public class UsuarioRedeSocial extends Usuario {
 	private static final long serialVersionUID = 1L;
 
-	private String autenticacaoTipo;
 	private String idUsuarioRs;
+	private String autenticacaoTipo;
 	private String usuarioFotoRs;
 	private String usuarioNomeRs;
 	

@@ -7,7 +7,7 @@ import org.junit.Test;
 class UsuarioServiceTest {
 
 	@Test
-	void deveCadastarUmUsuario() {
+	void deveCadastarUmUsuarioSomenteSeOEmailUtilizadoNaoExistir() {
 		fail("Not yet implemented");
 	}
 	
