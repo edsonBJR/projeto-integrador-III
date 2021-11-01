@@ -23,6 +23,18 @@ public class UsuarioRedeSocial extends Usuario {
 		this.usuarioNomeRs = usuarioNomeRs;
 	}
 
+	public UsuarioRedeSocial(Integer id, String nome, String sobrenome, String email, String senha, String idUsuarioRs, String autenticacaoTipo, String usuarioFotoRs, String usuarioNomeRs) {
+		this.id = id;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.email = email;
+		this.senha = senha;
+		this.idUsuarioRs = idUsuarioRs;
+		this.autenticacaoTipo = autenticacaoTipo;
+		this.usuarioFotoRs = usuarioFotoRs;
+		this.usuarioNomeRs = usuarioNomeRs;
+	}
+
 	public String getAutenticacaoTipo() {
 		return autenticacaoTipo;
 	}

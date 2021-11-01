@@ -1,5 +1,8 @@
 package com.projetointegrador.wichstream.controller.form;
 
+import com.projetointegrador.wichstream.model.Usuario;
+import com.projetointegrador.wichstream.repository.UsuarioRepository;
+
 public class AtualizacaoUsuarioForm {
 	
 	private String nome;
@@ -58,6 +61,21 @@ public class AtualizacaoUsuarioForm {
 	}
 	public void setUsuarioNomeRs(String usuarioNomeRs) {
 		this.usuarioNomeRs = usuarioNomeRs;
+	}
+	
+	public Usuario atualizar(Long id, Usuario usuarioAtualizar) {
+		return null;
+	}
+	
+	public Usuario atualizar(Integer id, UsuarioRepository usuarioRepository) {
+		Usuario usuario = usuarioRepository.getOne(id);
+		
+		usuario.setNome(this.nome);
+		usuario.setSobrenome(this.sobrenome);
+		usuario.setEmail(this.email);
+		usuario.setSenha(this.senha);
+		
+		return usuario;
 	}
 	
 }
