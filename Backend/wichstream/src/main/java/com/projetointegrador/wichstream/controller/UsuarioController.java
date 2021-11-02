@@ -35,7 +35,6 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	
 	@PostMapping
 	public ResponseEntity<UsuarioDTO> cadastar(@RequestBody @Valid UsuarioForm usuarioForm, UriComponentsBuilder uriBuilder) throws Exception {
 		

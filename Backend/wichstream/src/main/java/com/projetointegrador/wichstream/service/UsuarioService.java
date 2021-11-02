@@ -29,12 +29,6 @@ public class UsuarioService {
 		
 	}
 
-	public Usuario atualizar(Usuario usuario, Integer idUsuarioRs) {
-		
-		
-		return null;
-	}
-
 	public void deletar(Integer id) {
 		if (buscarPorId(id) != null) {
 			usuarioRepository.deleteById(id);

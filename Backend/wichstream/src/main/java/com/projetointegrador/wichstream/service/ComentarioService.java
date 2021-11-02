@@ -1,19 +1,28 @@
 package com.projetointegrador.wichstream.service;
 
-import com.projetointegrador.wichstream.model.Comentario;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.projetointegrador.wichstream.model.Comentario;
+import com.projetointegrador.wichstream.repository.ComentarioRepository;
+
+@Service
 public class ComentarioService {
 	
+	@Autowired
+	private ComentarioRepository comentarioRepository;
+
 	public Comentario cadastar(Comentario comentario) {
-		return null;
+
+		return comentarioRepository.save(comentario);
 	}
-	
+
 	public Comentario atualizar(Comentario comentario, Integer id) {
 		return null;
 	}
-	
+
 	public void comentar(Integer id) {
-		
+
 	}
 
 }

@@ -63,10 +63,6 @@ public class AtualizacaoUsuarioForm {
 		this.usuarioNomeRs = usuarioNomeRs;
 	}
 	
-	public Usuario atualizar(Long id, Usuario usuarioAtualizar) {
-		return null;
-	}
-	
 	public Usuario atualizar(Integer id, UsuarioRepository usuarioRepository) {
 		Usuario usuario = usuarioRepository.getOne(id);
 		
