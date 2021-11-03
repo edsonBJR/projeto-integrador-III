@@ -1,6 +1,6 @@
 package com.projetointegrador.wichstream.service;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -19,19 +19,23 @@ public class ConteudoService {
 	public Conteudo cadastrar(Conteudo conteudo) {
 		return conteudoRepository.save(conteudo);
 	}
+	
+	public Conteudo buscarPorTitulo(String titulo) {
+		return conteudoRepository.findByTituloContainingIgnoreCase(titulo);
+	}
 
 	public Conteudo buscarPorDescricao(String descricao) {
-		return conteudoRepository.findByDescricao(descricao);
+		return conteudoRepository.findByDescricaoContainingIgnoreCase(descricao);
 	}
 
 	public Conteudo buscarPorDataLancamento(String dataLancamento) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		LocalDateTime dateTime = LocalDateTime.parse(dataLancamento, formatter);
-		return conteudoRepository.findByDataLancamento(dateTime);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate date = LocalDate.parse(dataLancamento, formatter);
+		return conteudoRepository.findByDataLancamento(date);
 	}
 
 	public List<Conteudo> buscarPorGenero(String genero) {
-		return conteudoRepository.findByGenero(genero);
+		return conteudoRepository.findByGeneroContainingIgnoreCase(genero);
 	}
 	
 }

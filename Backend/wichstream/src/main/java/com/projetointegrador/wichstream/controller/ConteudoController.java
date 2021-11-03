@@ -72,8 +72,12 @@ public class ConteudoController {
 	}
 
 	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<ConteudoDTO> buscarConteudoPorTitulo() {
-		return null;
+	public ResponseEntity<ConteudoDTO> buscarConteudoPorTitulo(@PathVariable String titulo) {
+		Conteudo conteudoPorDescricao = conteudoService.buscarPorTitulo(titulo);
+		if(conteudoPorDescricao != null) {
+			return ResponseEntity.ok(new ConteudoDTO(conteudoPorDescricao)); 
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
 	@GetMapping("/descricao/{descricao}")
@@ -101,7 +105,7 @@ public class ConteudoController {
 			List<Conteudo> todosConteudos = conteudoRepository.findAll();
 			return ConteudoDTO.converterLista(todosConteudos);
 		} else {
-			List<Conteudo> todosConteudos= conteudoRepository.findByGenero(genero);
+			List<Conteudo> todosConteudos= conteudoRepository.findByGeneroContainingIgnoreCase(genero);
 			return ConteudoDTO.converterLista(todosConteudos);
 		}
 	}
