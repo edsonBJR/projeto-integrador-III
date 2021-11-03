@@ -17,10 +17,6 @@ public class ComentarioService {
 		return comentarioRepository.save(comentario);
 	}
 
-	public Comentario atualizar(Comentario comentario, Integer id) {
-		return null;
-	}
-
 	public void comentar(Integer id) {
 
 	}

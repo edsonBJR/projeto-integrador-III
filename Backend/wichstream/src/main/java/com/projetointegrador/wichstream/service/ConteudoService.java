@@ -2,16 +2,20 @@ package com.projetointegrador.wichstream.service;
 
 import java.util.List;
 
-import com.projetointegrador.wichstream.model.Conteudo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.projetointegrador.wichstream.model.Conteudo;
+import com.projetointegrador.wichstream.repository.ConteudoRepository;
+
+@Service
 public class ConteudoService {
+	
+	@Autowired
+	private ConteudoRepository conteudoRepository;
 
 	public Conteudo cadastrar(Conteudo conteudo) {
-		return null;
-	}
-	
-	public Conteudo atualizar(Conteudo conteudo, Integer id) {
-		return null;
+		return conteudoRepository.save(conteudo);
 	}
 	
 	public void deletar(Integer id) {
