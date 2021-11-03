@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -69,4 +70,39 @@ public class ConteudoController {
 		return ResponseEntity.notFound().build();
 	}
 
+	@GetMapping("/descricao/{descricao}")
+	public ResponseEntity<ConteudoDTO> buscarConteudoPorDescricao() {
+		return null;
+	}
+	
+	@GetMapping("/titulo/{titulo}")
+	public ResponseEntity<ConteudoDTO> buscarConteudoPorTitulo() {
+		return null;
+	}
+	
+	@GetMapping("/dataLancamento/{dataLancamento}")
+	
+	public ResponseEntity<ConteudoDTO> buscarConteudoPorDataLancamento() {
+		return null;
+	}
+	
+	@GetMapping("/genero/{genero}")
+	public ResponseEntity<ConteudoDTO> buscarConteudoPorGenero() {
+		return null;
+	}
+	
+	@GetMapping("/serieTemporada/{numero}")
+	public ResponseEntity<ConteudoDTO> buscarConteudoSeriePorTemporada() {
+		return null;
+	}
+	
+	@GetMapping("/serieEpisodio/{numero}")
+	public ResponseEntity<ConteudoDTO> buscarConteudoSeriePorEpisodio() {
+		return null;
+	}
+	
+	@GetMapping("/filmeSequencia/{numero}")
+	public ResponseEntity<ConteudoDTO> buscarConteudoFilmePorSequencia() {
+		return null;
+	}
 }
