@@ -1,6 +1,7 @@
 package com.projetointegrador.wichstream.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -70,25 +71,39 @@ public class ConteudoController {
 		return ResponseEntity.notFound().build();
 	}
 
-	@GetMapping("/descricao/{descricao}")
-	public ResponseEntity<ConteudoDTO> buscarConteudoPorDescricao() {
-		return null;
-	}
-	
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<ConteudoDTO> buscarConteudoPorTitulo() {
 		return null;
 	}
 	
+	@GetMapping("/descricao/{descricao}")
+	public ResponseEntity<ConteudoDTO> buscarConteudoPorDescricao(@PathVariable String descricao) {
+		Conteudo conteudoPorDescricao = conteudoService.buscarPorDescricao(descricao);
+		if(conteudoPorDescricao != null) {
+			return ResponseEntity.ok(new ConteudoDTO(conteudoPorDescricao)); 
+		}
+		return ResponseEntity.notFound().build();
+	}
+
 	@GetMapping("/dataLancamento/{dataLancamento}")
-	
-	public ResponseEntity<ConteudoDTO> buscarConteudoPorDataLancamento() {
-		return null;
+	public ResponseEntity<ConteudoDTO> buscarConteudoPorDataLancamento(@PathVariable String dataLancamento) {
+		Conteudo conteudoPorDataLancamento = conteudoService.buscarPorDataLancamento(dataLancamento);
+		if(conteudoPorDataLancamento != null) {
+			return ResponseEntity.ok(new ConteudoDTO(conteudoPorDataLancamento)); 
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
 	@GetMapping("/genero/{genero}")
-	public ResponseEntity<ConteudoDTO> buscarConteudoPorGenero() {
-		return null;
+	public List<ConteudoDTO> buscarConteudoPorGenero(@PathVariable String genero) {
+		List<Conteudo> conteudosPorGenero = conteudoService.buscarPorGenero(genero);
+		if (conteudosPorGenero == null) {
+			List<Conteudo> todosConteudos = conteudoRepository.findAll();
+			return ConteudoDTO.converterLista(todosConteudos);
+		} else {
+			List<Conteudo> todosConteudos= conteudoRepository.findByGenero(genero);
+			return ConteudoDTO.converterLista(todosConteudos);
+		}
 	}
 	
 	@GetMapping("/serieTemporada/{numero}")

@@ -1,6 +1,8 @@
 package com.projetointegrador.wichstream.controller.dto;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.projetointegrador.wichstream.model.Conteudo;
 import com.projetointegrador.wichstream.repository.ConteudoRepository;
@@ -67,6 +69,10 @@ public class ConteudoDTO {
 		conteudo.setImagem(imagem);
 		
 		return conteudo;
+	}
+	
+	public static List<ConteudoDTO> converterLista(List<Conteudo> conteudos) {
+		return conteudos.stream().map(ConteudoDTO::new).collect(Collectors.toList());
 	}
 
 }

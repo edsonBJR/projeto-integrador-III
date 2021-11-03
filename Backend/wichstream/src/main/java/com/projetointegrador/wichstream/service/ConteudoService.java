@@ -1,5 +1,7 @@
 package com.projetointegrador.wichstream.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,36 +19,19 @@ public class ConteudoService {
 	public Conteudo cadastrar(Conteudo conteudo) {
 		return conteudoRepository.save(conteudo);
 	}
-	
-	public void deletar(Integer id) {
-		
-	}
-	
-	public Conteudo buscarPorId(Integer id) {
-		return null;
-	}
-	
-	public Conteudo buscarPorTitulo(String titulo) {
-		return null;
-	}
-	
+
 	public Conteudo buscarPorDescricao(String descricao) {
-		return null;
+		return conteudoRepository.findByDescricao(descricao);
 	}
-	
-	public List<Conteudo> buscarPorDataLancamento(String dataLancamento) {
-		return null;
+
+	public Conteudo buscarPorDataLancamento(String dataLancamento) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		LocalDateTime dateTime = LocalDateTime.parse(dataLancamento, formatter);
+		return conteudoRepository.findByDataLancamento(dateTime);
 	}
-	
+
 	public List<Conteudo> buscarPorGenero(String genero) {
-		return null;
+		return conteudoRepository.findByGenero(genero);
 	}
-	
-	public void curtir(Integer id) {
-	}
-	
-	public void compartilhar(Integer id) {
-	}
-	
 	
 }
