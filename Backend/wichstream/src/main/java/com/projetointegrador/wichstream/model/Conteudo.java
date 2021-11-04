@@ -24,11 +24,14 @@ public class Conteudo  implements Serializable {
 	protected String genero;
 	protected String imagem;
 	protected Integer curtida;
+	protected String sequencia;
+	protected String temporada;
+	protected String episodio;
 	
 	public Conteudo() {}
 	
 	public Conteudo(Integer id, String titulo, String descricao, String duracao, LocalDate dataLancamento,
-			String genero, String imagem, Integer curtida) {
+			String genero, String imagem, Integer curtida, String sequencia, String temporada, String episodio) {
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
@@ -37,6 +40,9 @@ public class Conteudo  implements Serializable {
 		this.genero = genero;
 		this.imagem = imagem;
 		this.curtida = curtida;
+		this.sequencia = sequencia;
+		this.temporada = temporada;
+		this.episodio = episodio;
 	}
 	
 	public Integer getId() {
@@ -93,6 +99,30 @@ public class Conteudo  implements Serializable {
 	}
 	public void setCurtida(Integer curtida) {
 		this.curtida = curtida;
+	}
+	
+	public String getSequencia() {
+		return sequencia;
+	}
+
+	public void setSequencia(String sequencia) {
+		this.sequencia = sequencia;
+	}
+
+	public String getTemporada() {
+		return temporada;
+	}
+
+	public void setTemporada(String temporada) {
+		this.temporada = temporada;
+	}
+
+	public String getEpisodio() {
+		return episodio;
+	}
+
+	public void setEpisodio(String episodio) {
+		this.episodio = episodio;
 	}
 
 	@Override

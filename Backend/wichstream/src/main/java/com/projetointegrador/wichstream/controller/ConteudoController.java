@@ -111,17 +111,20 @@ public class ConteudoController {
 	}
 	
 	@GetMapping("/serieTemporada/{numero}")
-	public ResponseEntity<ConteudoDTO> buscarConteudoSeriePorTemporada() {
-		return null;
+	public List<ConteudoDTO>  buscarConteudoSeriePorTemporada(@PathVariable String numero) {
+		List<Conteudo> conteudoPorNumeroSerieTemporada = conteudoService.buscarPorSerieTemporada(numero);
+		return ConteudoDTO.converterLista(conteudoPorNumeroSerieTemporada);
 	}
 	
 	@GetMapping("/serieEpisodio/{numero}")
-	public ResponseEntity<ConteudoDTO> buscarConteudoSeriePorEpisodio() {
-		return null;
+	public List<ConteudoDTO>  buscarConteudoSeriePorEpisodio(@PathVariable String numero) {
+		List<Conteudo> conteudoPorNumeroSerieEpisodio = conteudoService.buscarPorSerieEpisodio(numero);
+		return ConteudoDTO.converterLista(conteudoPorNumeroSerieEpisodio);
 	}
 	
 	@GetMapping("/filmeSequencia/{numero}")
-	public ResponseEntity<ConteudoDTO> buscarConteudoFilmePorSequencia() {
-		return null;
+	public List<ConteudoDTO>  buscarConteudoFilmePorSequencia(@PathVariable String numero) {
+		List<Conteudo> conteudoPorNumeroFilmeSequencia = conteudoService.buscarPorFilmeSequencia(numero);
+		return ConteudoDTO.converterLista(conteudoPorNumeroFilmeSequencia);
 	}
 }

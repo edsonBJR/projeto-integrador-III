@@ -37,5 +37,17 @@ public class ConteudoService {
 	public List<Conteudo> buscarPorGenero(String genero) {
 		return conteudoRepository.findByGeneroContainingIgnoreCase(genero);
 	}
+
+	public List<Conteudo> buscarPorSerieTemporada(String numeroSerieTemporada) {
+		return conteudoRepository.findByTemporada(numeroSerieTemporada);
+	}
+
+	public List<Conteudo> buscarPorSerieEpisodio(String numeroSerieEpisodio) {
+		return conteudoRepository.findByEpisodio(numeroSerieEpisodio);
+	}
+
+	public List<Conteudo> buscarPorFilmeSequencia(String numeroFilmeSequencia) {
+		return conteudoRepository.findBySequencia(numeroFilmeSequencia);
+	}
 	
 }

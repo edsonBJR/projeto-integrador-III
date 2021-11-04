@@ -16,6 +16,9 @@ public class ConteudoDTO {
 	private LocalDate dataLancamento;
 	private String genero;
 	private String imagem;
+	private String sequencia;
+	private String temporada;
+	private String episodio;
 
 	public ConteudoDTO() {
 	}
@@ -28,6 +31,9 @@ public class ConteudoDTO {
 		this.dataLancamento = conteudo.getDataLancamento();
 		this.genero = conteudo.getGenero();
 		this.imagem = conteudo.getImagem();
+		this.sequencia = conteudo.getSequencia();
+		this.temporada = conteudo.getTemporada();
+		this.episodio = conteudo.getEpisodio();
 	}
 
 	public Integer getId() {
@@ -57,7 +63,19 @@ public class ConteudoDTO {
 	public String getImagem() {
 		return imagem;
 	}
-	
+
+	public String getSequencia() {
+		return sequencia;
+	}
+
+	public String getTemporada() {
+		return temporada;
+	}
+
+	public String getEpisodio() {
+		return episodio;
+	}
+
 	public Conteudo atualizar(Integer id, ConteudoRepository conteudoRepository) {
 		Conteudo conteudo = conteudoRepository.getOne(id);
 		
@@ -67,6 +85,9 @@ public class ConteudoDTO {
 		conteudo.setDataLancamento(dataLancamento);
 		conteudo.setGenero(genero);
 		conteudo.setImagem(imagem);
+		conteudo.setSequencia(sequencia);
+		conteudo.setTemporada(temporada);
+		conteudo.setEpisodio(episodio);
 		
 		return conteudo;
 	}

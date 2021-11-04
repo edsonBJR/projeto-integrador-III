@@ -13,5 +13,8 @@ public interface ConteudoRepository extends JpaRepository<Conteudo, Integer> {
 	Conteudo findByDescricaoContainingIgnoreCase(String descricao);
 	Conteudo findByDataLancamento(LocalDate dataLancamento);
 	List<Conteudo> findByGeneroContainingIgnoreCase(String genero);
+	List<Conteudo> findByTemporada(String numeroSerieTemporada);
+	List<Conteudo> findByEpisodio(String numeroSerieEpisodio);
+	List<Conteudo> findBySequencia(String numeroFilmeSequencia);
 
 }

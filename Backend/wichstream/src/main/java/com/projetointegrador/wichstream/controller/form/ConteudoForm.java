@@ -12,6 +12,9 @@ public class ConteudoForm {
 	private LocalDate dataLancamento;
 	private String genero;
 	private String imagem;
+	private String sequencia;
+	private String temporada;
+	private String episodio;
 
 	public String getTitulo() {
 		return titulo;
@@ -61,8 +64,33 @@ public class ConteudoForm {
 		this.imagem = imagem;
 	}
 
+	public String getSequencia() {
+		return sequencia;
+	}
+
+	public void setSequencia(String sequencia) {
+		this.sequencia = sequencia;
+	}
+
+	public String getTemporada() {
+		return temporada;
+	}
+
+	public void setTemporada(String temporada) {
+		this.temporada = temporada;
+	}
+
+	public String getEpisodio() {
+		return episodio;
+	}
+
+	public void setEpisodio(String episodio) {
+		this.episodio = episodio;
+	}
+
 	public Conteudo converter(ConteudoForm conteudoForm) {
 		return new Conteudo(null, conteudoForm.getTitulo(), conteudoForm.getDescricao(), conteudoForm.getDuracao(),
-				conteudoForm.getDataLancamento(), conteudoForm.getGenero(), conteudoForm.getGenero(), null);
+				conteudoForm.getDataLancamento(), conteudoForm.getGenero(), conteudoForm.getGenero(), null,
+				conteudoForm.getSequencia(), conteudoForm.getTemporada(), conteudoForm.getEpisodio());
 	}
 }
