@@ -11,14 +11,5 @@ class UsuarioServiceTest {
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	void deveAtualizarUmUsuario() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	void deveDeletarUmUsuario() {
-		fail("Not yet implemented");
-	}
 
 }

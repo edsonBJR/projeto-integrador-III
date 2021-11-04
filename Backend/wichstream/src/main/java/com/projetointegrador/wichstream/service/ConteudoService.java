@@ -20,6 +20,10 @@ public class ConteudoService {
 		return conteudoRepository.save(conteudo);
 	}
 	
+	public Conteudo buscarPorId(Integer id) {
+		return conteudoRepository.getOne(id);
+	}
+	
 	public Conteudo buscarPorTitulo(String titulo) {
 		return conteudoRepository.findByTituloContainingIgnoreCase(titulo);
 	}
